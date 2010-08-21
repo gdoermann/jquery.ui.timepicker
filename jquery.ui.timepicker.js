@@ -20,6 +20,8 @@
 			separator: ':',
 			show24Hours: false,
 			source:null,
+			am:'am',
+			pm:'pm'
 		},
 		_create: function(){
 			var self = this;
@@ -81,7 +83,7 @@
 			var h = time.getHours();
 			var hours = this.options.show24Hours ? h : (((h + 11) % 12) + 1);
 			var minutes = time.getMinutes();
-			return this._formatNumber(hours) + this.options.separator + this._formatNumber(minutes) + (this.options.show24Hours ? '' : ((h < 12) ? ' am' : ' pm'));
+			return this._formatNumber(hours) + this.options.separator + this._formatNumber(minutes) + (this.options.show24Hours ? '' : ((h < 12) ? ' ' + this.options.am : ' ' + this.options.pm));
 		},
 		_formatNumber: function (value) {
 			return (value < 10 ? '0' : '') + value;
@@ -97,10 +99,10 @@
 	
 				// Convert AM/PM hour to 24-hour format.
 				if (!self.options.show24Hours) {
-				if (hours === 12 && input.substr('AM') !== -1) {
+				if (hours === 12 && input.substr(this.options.am) !== -1) {
 					hours = 0;
 				}
-				else if (hours !== 12 && input.indexOf('PM') !== -1) {
+				else if (hours !== 12 && input.indexOf(this.options.pm) !== -1) {
 					hours += 12;
 				}
 				}
