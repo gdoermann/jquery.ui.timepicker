@@ -1,0 +1,10 @@
+A time picker for jQuery UI
+
+This is a simple time picker that creates a autocomplete combobox using the dates and times specified. 
+You can give it a range, an array, an ajax source, whatever.
+
+It is based off on the timePicker by Anders Fajerson (http://perifer.se) and works a lot like the google
+calendar time picking widget.  It is unintrusive and degrades to just a text input.  
+
+Dual licensed under the MIT and GPL licenses.
+Copyright (c) 2010 Gregory Doermann
